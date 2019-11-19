@@ -1,9 +1,9 @@
-import com.clm.View.Login;
+import com.clm.View.SignIn;
 
 public class Main {
 	public static void main(String args[]) {
 		System.out.println("wanghany123i");
-		Login login = new Login();
+		SignIn login = new SignIn();
 		login.setVisible(true);
 	}
 }
