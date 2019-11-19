@@ -1,4 +1,4 @@
-package com.clm.controller;
+package com.clm.Controller;
 
 public class Controller {
 

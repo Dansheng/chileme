@@ -1,4 +1,4 @@
-package com.clm.view;
+package com.clm.View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

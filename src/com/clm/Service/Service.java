@@ -1,4 +1,4 @@
-package com.clm.service;
+package com.clm.Service;
 
 public class Service {
 

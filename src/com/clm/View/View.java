@@ -1,4 +1,4 @@
-package com.clm.view;
+package com.clm.View;
 
 public class View {
 
