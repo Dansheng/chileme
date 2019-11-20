@@ -9,7 +9,6 @@ public class Worker {
 	// password?
 	
 	Worker(String name){
-		// todo:get default_workId from mysql
 		setName(name);
 	}
 	// get
