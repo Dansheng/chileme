@@ -22,12 +22,15 @@ public class JdbcUnit {
     }
     public static void CloseConnection()
     {
-    	try
+    	if(getConnection()!=null)
     	{
-    		getConnection().close();
-    	}catch(SQLException e)
-    	{
-    		e.printStackTrace();
+    		try
+        	{
+        		getConnection().close();
+        	}catch(SQLException e)
+        	{
+        		e.printStackTrace();
+        	}
     	}
     }
 }

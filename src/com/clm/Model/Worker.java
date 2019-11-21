@@ -18,7 +18,7 @@ public class Worker {
 	}
 	// get
 	public Integer getWorkId() {
-		return 0;
+		return workId;
 	}
 	public String getName() {
 		return this.name;

@@ -4,7 +4,7 @@ public class Card {
 	Integer WorkerId;
 	String cardNumber;
 	Double balance;
-	Card(){
+	public Card(){
 		balance = 0.00;
 	}
 	// get 
@@ -18,14 +18,14 @@ public class Card {
 		return balance;
 	}
 	// set
-	public boolean setWorkerId() {
-		return true;
+	public void setWorkerId(Integer WorkerId) {
+		this.WorkerId=WorkerId;
 	}
-	public boolean setCardNumber() {
-		return true;
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber=cardNumber;
 	}
-	public boolean setBalance() {
-		return true;
+	public void setBalance(double balance) {
+		this.balance=balance;
 	}
 	// saveMoney
 	public boolean deposit(double money) {
