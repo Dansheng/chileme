@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.clm.Controller.Controller;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -69,17 +72,23 @@ public class SignIn extends JFrame {
 		lblMiMa.setBounds(121, 117, 33, 16);
 		panel.add(lblMiMa);
 		
-		JButton button = new JButton("登录");
-		button.setBounds(137, 171, 117, 29);
-		panel.add(button);
+		JButton buttonSignIn = new JButton("登录");
+		buttonSignIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controller controller = Controller.getInstance();
+				controller.login(Integer.parseInt(textField.getText()),textField_1.getText());
+			}
+		});
+		buttonSignIn.setBounds(137, 171, 117, 29);
+		panel.add(buttonSignIn);
 		
-		JButton btnZhuC = new JButton("注册");
-		btnZhuC.addActionListener(new ActionListener() {
+		JButton buttonSignUp = new JButton("注册");
+		buttonSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnZhuC.setBounds(253, 171, 61, 26);
-		panel.add(btnZhuC);
+		buttonSignUp.setBounds(253, 171, 61, 26);
+		panel.add(buttonSignUp);
 	}
 
 }

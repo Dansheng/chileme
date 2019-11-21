@@ -164,6 +164,6 @@ public class WorkerDao {
 		worker.setPhoneNumber("13325303000");
 		worker.setEmail("osw@ins");
 		//AddWorker(worker);
-		DelWorker(worker);
+		//DelWorker(worker);
 	}
 }

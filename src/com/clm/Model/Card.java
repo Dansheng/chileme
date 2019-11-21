@@ -37,6 +37,21 @@ public class Card {
 		}
 		return true;
 	}
+	//drawMoney
+	public boolean draw(double money) {
+		try {
+			if(balance > money)
+				balance -= money;
+			else {
+				System.out.println("Error:money is not enough!!!");
+				return false;
+			}
+		}
+		catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
 	
 	
 	
