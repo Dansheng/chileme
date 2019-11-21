@@ -12,6 +12,10 @@ public class Worker {
 	Worker(String name){
 		setName(name);
 	}
+	public Worker(Integer workId,String password){
+		this.workId = workId;
+		this.password = password;
+	}
 	// get
 	public Integer getWorkId() {
 		return 0;
