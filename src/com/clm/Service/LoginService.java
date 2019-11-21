@@ -8,7 +8,7 @@ public class LoginService {
 	private LoginService() {
 		
 	}
-	public LoginService getInstance() {
+	public static LoginService getInstance() {
 		return loginService;
 	}
 	public boolean login(Integer workId,String password) {
