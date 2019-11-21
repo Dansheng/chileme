@@ -11,8 +11,9 @@ public class Controller {
 		return controller;
 	}
 	// for login 
-	public void login(Integer workId,String password) {
+	public boolean login(Integer workId,String password) {
 		LoginService login = LoginService.getInstance();
 		login.login(workId, password);
+		return true;
 	}
 }
