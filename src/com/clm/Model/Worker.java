@@ -24,7 +24,7 @@ public class Worker {
 		return this.name;
 	}
 	public String getPosition() {
-		return this.getPosition();
+		return this.position;
 	}
 	public String getPhoneNumber() {
 		return this.phoneNumber;
