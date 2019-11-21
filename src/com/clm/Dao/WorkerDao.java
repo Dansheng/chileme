@@ -15,6 +15,8 @@ public class WorkerDao {
 			String insert="INSERT INTO worker(workId,name,position,phoneNumber,email) VALUES('"+worker.getWorkId()+"','"+worker.getName()+"','"+worker.getPosition()+"','"+worker.getPhoneNumber()+"','"+worker.getEmail()+"')";
 			stmt.executeUpdate(insert);
 			System.out.println("Successfully insert");
+			stmt.close();
+			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -28,6 +30,8 @@ public class WorkerDao {
 			String delete="DELETE FROM worker WHERE workId="+worker.getWorkId();
 			stmt.executeUpdate(delete);
 			System.out.println("Successfully delete");
+			stmt.close();
+			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -40,6 +44,8 @@ public class WorkerDao {
 			Statement stmt=JdbcUnit.getConnection().createStatement();
 			String modify="UPDATE worker SET position='"+worker.getPosition()+"' WHERE workerId="+worker.getWorkId();
 			stmt.executeUpdate(modify);
+			stmt.close();
+			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -53,6 +59,8 @@ public class WorkerDao {
 			Statement stmt=JdbcUnit.getConnection().createStatement();
 			String modify="UPDATE worker SET phoneNumber='"+worker.getPhoneNumber()+"' WHERE workerId="+worker.getWorkId();
 			stmt.executeUpdate(modify);
+			stmt.close();
+			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -83,10 +91,6 @@ public class WorkerDao {
 		worker.setPhoneNumber("13325303000");
 		worker.setEmail("osw@ins");
 		AddWorker(worker);
-		
-		
-		
-		
 	}
 	
 

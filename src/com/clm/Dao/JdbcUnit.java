@@ -2,12 +2,13 @@ package com.clm.Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class JdbcUnit {
 	private static Connection conn=null;
 	static{
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String url="jdbc:mysql://39.105.43.248:3306/clm?characterEncoding=utf-8";
             String username="root";
             String password="Slc1713011!";
@@ -18,5 +19,15 @@ public class JdbcUnit {
     }
     public static Connection getConnection(){
         return conn;
+    }
+    public static void CloseConnection()
+    {
+    	try
+    	{
+    		getConnection().close();
+    	}catch(SQLException e)
+    	{
+    		e.printStackTrace();
+    	}
     }
 }
