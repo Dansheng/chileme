@@ -18,8 +18,8 @@ import java.awt.event.ActionEvent;
 public class SignIn extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textWorkId;
+	private JTextField textPassword;
 
 	/**
 	 * Launch the application.
@@ -52,31 +52,29 @@ public class SignIn extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setText("请输入账号");
-		textField.setBounds(185, 54, 130, 26);
-		panel.add(textField);
-		textField.setColumns(10);
+		textWorkId = new JTextField();
+		textWorkId.setBounds(185, 54, 130, 26);
+		panel.add(textWorkId);
+		textWorkId.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("请输入密码");
-		textField_1.setBounds(185, 112, 130, 26);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		textPassword = new JTextField();
+		textPassword.setBounds(185, 112, 130, 26);
+		panel.add(textPassword);
+		textPassword.setColumns(10);
 		
-		JLabel label = new JLabel("员工编号");
-		label.setBounds(121, 59, 52, 16);
-		panel.add(label);
+		JLabel labelWordId = new JLabel("员工编号");
+		labelWordId.setBounds(121, 59, 52, 16);
+		panel.add(labelWordId);
 		
-		JLabel lblMiMa = new JLabel("密码");
-		lblMiMa.setBounds(121, 117, 33, 16);
-		panel.add(lblMiMa);
+		JLabel labelPassword = new JLabel("密码");
+		labelPassword.setBounds(121, 117, 33, 16);
+		panel.add(labelPassword);
 		
 		JButton buttonSignIn = new JButton("登录");
 		buttonSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
-				controller.login(Integer.parseInt(textField.getText()),textField_1.getText());
+				controller.login(Integer.parseInt(textWorkId.getText()),textPassword.getText());
 			}
 		});
 		buttonSignIn.setBounds(137, 171, 117, 29);
