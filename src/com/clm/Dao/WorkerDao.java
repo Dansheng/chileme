@@ -85,12 +85,14 @@ public class WorkerDao {
 	}
 	public static void main(String[] args)
 	{
-		Worker worker=new Worker(001,"1999");
-		worker.setName("OSW");
-		worker.setPosition("boss");
-		worker.setPhoneNumber("13325303000");
-		worker.setEmail("osw@ins");
-		AddWorker(worker);
+		Worker worker=new Worker(1,"1999");
+		System.out.println(worker.getWorkId());
+//		
+//		worker.setName("OSW");
+//		worker.setPosition("boss");
+//		worker.setPhoneNumber("13325303000");
+//		worker.setEmail("osw@ins");
+//		AddWorker(worker);
 	}
 	
 
