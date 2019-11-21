@@ -6,7 +6,8 @@ public class Worker {
 	String position;
 	String phoneNumber;
 	String email;
-	// password?
+	String password;
+	Card bankCard = null;
 	
 	Worker(String name){
 		setName(name);
@@ -28,10 +29,8 @@ public class Worker {
 		return this.email;
 	}
 	// set
-	// todo:Dao
 	public void setWorkId(Integer id) {
 		this.workId=id;
-		//Dao 
 	}
 	public void setName(String newName) {
 		this.name=newName;
@@ -44,6 +43,9 @@ public class Worker {
 	}
 	public void setEmail(String newEmail) {
 		this.email=newEmail;
+	}
+	public void setCard(Card card) {
+		bankCard = card;
 	}
 	
 }
