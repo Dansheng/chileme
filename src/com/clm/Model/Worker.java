@@ -9,8 +9,8 @@ public class Worker {
 	String password;
 	Card bankCard = null;
 	
-	Worker(String name){
-		setName(name);
+	public Worker(Integer workId){
+		setWorkId(workId);
 	}
 	public Worker(Integer workId,String password){
 		this.workId = workId;
