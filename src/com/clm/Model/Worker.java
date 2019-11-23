@@ -32,6 +32,10 @@ public class Worker {
 	public String getEmail() {
 		return this.email;
 	}
+	public String getPassword()
+	{
+		return this.password;
+	}
 	// set
 	public void setWorkId(Integer id) {
 		this.workId=id;
@@ -49,7 +53,10 @@ public class Worker {
 		this.email=newEmail;
 	}
 	public void setCard(Card card) {
-		bankCard = card;
+		this.bankCard = card;
 	}
-	
+	public void setPassword(String password)
+	{
+		this.password=password;
+	}
 }

@@ -9,12 +9,14 @@ import com.mysql.cj.protocol.Resultset;
 public class WorkerDao {
 	public  boolean AddWorker(Worker worker)
 	{
-		Integer s=null;
+		Integer s1=null,s2=null;
 		try
 		{
 			Statement stmt=JdbcUnit.getConnection().createStatement();
-			String insert="INSERT INTO worker(workId,name,position,phoneNumber,email) VALUES("+worker.getWorkId()+",'"+worker.getName()+"','"+worker.getPosition()+"','"+worker.getPhoneNumber()+"','"+worker.getEmail()+"')";
-			s=stmt.executeUpdate(insert);
+			String insert1="INSERT INTO worker(workId,name,position,phoneNumber,email) VALUES("+worker.getWorkId()+",'"+worker.getName()+"','"+worker.getPosition()+"','"+worker.getPhoneNumber()+"','"+worker.getEmail()+"')";
+			String insert2="INSERT INTO userInfo(workId,password) VALUES("+worker.getWorkId()+",'"+worker.getPassword()+"')";
+			s1=stmt.executeUpdate(insert1);
+			s2=stmt.executeUpdate(insert2);
 //			if(stmt!=null)
 //			{
 //				try
@@ -31,7 +33,7 @@ public class WorkerDao {
 			e.printStackTrace();
 		}
 		System.out.println("Successfully insert");
-		if(s!=0)
+		if(s1!=0&&s2!=0)
 		{
 			return true;
 		}
@@ -40,12 +42,14 @@ public class WorkerDao {
 	}
 	public  boolean DelWorker(Worker worker)
 	{
-		Integer s=null;
+		Integer s1=null,s2=null;
 		try 
 		{
 			Statement stmt=JdbcUnit.getConnection().createStatement();
-			String delete="DELETE FROM worker WHERE workId="+worker.getWorkId();
-			s=stmt.executeUpdate(delete);
+			String delete1="DELETE FROM worker WHERE workId="+worker.getWorkId();
+			String delete2="DELETE FROM userInfo WHERE workId="+worker.getWorkId();
+			s1=stmt.executeUpdate(delete1);
+			s2=stmt.executeUpdate(delete2);
 //			if(stmt!=null)
 //			{
 //				try
@@ -62,7 +66,7 @@ public class WorkerDao {
 			e.printStackTrace();
 		}
 		System.out.println("Successfully delete");
-		if(s!=0)
+		if(s1!=0&&s2!=0)
 		{
 			return true;
 		}
@@ -156,6 +160,29 @@ public class WorkerDao {
 			e.printStackTrace();
 		}	
 	}
+	public static String CheckPas(Worker worker)
+	{
+		Integer s=null;
+		try
+		{
+			Statement stmt=JdbcUnit.getConnection().createStatement();
+			String check="SELECT COUNT(*) FROM userInfo WHERE workId="+worker.getWorkId()+" and password="+"'"+worker.getPassword()+"'";
+			ResultSet rs=stmt.executeQuery(check);
+			while(rs.next())
+			{
+				s=rs.getInt(1);
+			}
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		if(s!=0)
+		{
+			return "success";
+		}
+		else return "password error";
+			
+	}
 	public static void main(String[] args)
 	{
 		Worker worker=new Worker(001,"1999");
@@ -163,7 +190,10 @@ public class WorkerDao {
 		worker.setPosition("boss");
 		worker.setPhoneNumber("13325303000");
 		worker.setEmail("osw@ins");
-		//AddWorker(worker);
-		//DelWorker(worker);
+		worker.setPassword("123456");
+		WorkerDao workerdao=new WorkerDao();
+		workerdao.AddWorker(worker);
+		System.out.println(workerdao.CheckPas(worker));
+		
 	}
 }
