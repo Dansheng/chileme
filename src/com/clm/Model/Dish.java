@@ -7,10 +7,10 @@ public class Dish {
 	Integer avaNumber;
 	String image_url;
 	String descrption;
-	Dish(Integer dishId){
+	public Dish(Integer dishId){
 		setDishId(dishId);
 	}
-	Dish(String dishName,Double price){
+	public Dish(String dishName,Double price){
 		setDishName(dishName);
 		setPrice(price);
 	}
