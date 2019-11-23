@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class demo1 extends JFrame {
+public class demo1 extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 
@@ -46,32 +46,15 @@ public class demo1 extends JFrame {
 		contentPane.add(lblAhudhasudh, BorderLayout.NORTH);
 		
 		JButton btnSkipToDemo = new JButton("skip to demo2");
-		btnSkipToDemo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(this.getClass());
-			}
-		});
+		btnSkipToDemo.addActionListener(this);
 		contentPane.add(btnSkipToDemo, BorderLayout.CENTER);
 		
+
+	}
+	public void actionPerformed(ActionEvent e) {
+		this.setVisible(false);
+		new demo2().setVisible(true);;
 		
-//		btnSkipToDemo.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				//销毁当前页面
-//				closeThis();
-//				//打开一个新的页面
-//				new demo2().demo2();
-//			}
-//		});
-
 	}
-	public void hiddenThis() {
-		this.hiddenThis();
-	}
-	public void showThis() {
-		this.showThis();
-	}
-
 }
 

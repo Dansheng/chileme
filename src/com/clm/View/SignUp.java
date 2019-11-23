@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 
-public class SignUp extends JFrame {
+public class SignUp extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JTextField textWorkId;
@@ -116,6 +116,7 @@ public class SignUp extends JFrame {
 				controller.register(Integer.parseInt(textWorkId.getText()), textName.getText(), textPosition.getText(), textPhoneNumber.getText(), textEmail.getText(), textPassword.getText());
 			}
 		});
+		buttonSignUp.addActionListener(this);
 		buttonSignUp.setBounds(104, 309, 117, 29);
 		panel.add(buttonSignUp);
 		
@@ -123,5 +124,10 @@ public class SignUp extends JFrame {
 		textPassword.setBounds(152, 251, 130, 26);
 		panel.add(textPassword);
 		textPassword.setColumns(10);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		this.setVisible(false);
+		new SignIn().setVisible(true);
 	}
 }

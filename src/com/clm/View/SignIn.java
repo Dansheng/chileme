@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class SignIn extends JFrame {
+public class SignIn extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JTextField textWorkId;
@@ -81,12 +81,14 @@ public class SignIn extends JFrame {
 		panel.add(buttonSignIn);
 		
 		JButton buttonSignUp = new JButton("注册");
-		buttonSignUp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		buttonSignUp.addActionListener(this);
+		
 		buttonSignUp.setBounds(253, 171, 61, 26);
 		panel.add(buttonSignUp);
+	}
+	public void actionPerformed(ActionEvent e) {
+		this.setVisible(false);
+		new SignUp().setVisible(true);
 	}
 
 }
