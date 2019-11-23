@@ -144,24 +144,24 @@ public class DishDao {
 		}
 		return dishNumber+1;
 	}
-//	public static void main(String[] args)
-//	{
-//		Integer i=getDishId();
-//		System.out.println(i);
-//		DishDao dishDao=new DishDao();
-//		Dish dish=new Dish(i);
-//		dish.setDishName("tofu");
-//		dish.setPrice(20.0);
-//		dish.setAvaNumber(10);
-//		dish.setImage_url("www.baidu.com");
-//		dish.setDescription("delicious");
-//		System.out.println(dishDao.insertDish(dish));
-//		System.out.println(dishDao.Querydish(1));
-//		dishDao.Querydish();
-//		Iterator iterator=menu.iterator();
-//		while(iterator.hasNext())
-//		{
-//			System.out.println(iterator.next());
-//		}
-//	}
+	public static void main(String[] args)
+	{
+		Integer i=getDishId();
+		System.out.println(i);
+		DishDao dishDao=new DishDao();
+		Dish dish=new Dish(i);
+		dish.setDishName("tofu");
+		dish.setPrice(20.0);
+		dish.setAvaNumber(10);
+		dish.setImage_url("www.baidu.com");
+		dish.setDescription("delicious");
+		System.out.println(dishDao.insertDish(dish));
+		System.out.println(dishDao.Querydish(1));
+		dishDao.Querydish();
+		Iterator iterator=menu.iterator();
+		while(iterator.hasNext())
+		{
+			System.out.println(iterator.next());
+		}
+	}
 }

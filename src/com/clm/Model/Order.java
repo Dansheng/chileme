@@ -6,12 +6,14 @@ public class Order {
 	String serveTime;
 	String serveAddress;
 	String payWay;
-	String payStatus;
+	String payState;
+	String wordDescription;
+	Integer starDescription;
 	OrderInfo orderInfo;
-	Order(){
+	public Order(){
 		
 	}
-	Order(OrderInfo orderInfo){
+	public Order(OrderInfo orderInfo){
 		this.orderInfo = orderInfo;
 	}
 	// get
@@ -30,8 +32,12 @@ public class Order {
 	public String getPayWay() {
 		return this.payWay;
 	}
-	public String getPayStatus() {
-		return this.payStatus;
+	public String getPayState() {
+		return this.payState;
+	}
+	public OrderInfo getOrderInfo()
+	{
+		return this.orderInfo;
 	}
 	// set
 	public void setWorkId(Integer id) {
@@ -49,7 +55,25 @@ public class Order {
 	public void setPayWay(String payWay) {
 		this.payWay = payWay;
 	}
-	public void setPayStatus(String payStatus) {
-		this.payStatus=payStatus;
+	public void setPayState(String payState) {
+		this.payState=payState;
+	}
+	public String getWordDescription() {
+		return wordDescription;
+	}
+	public void setWordDescription(String wordDescription) {
+		this.wordDescription = wordDescription;
+	}
+	public Integer getStarDescription() {
+		return starDescription;
+	}
+	public void setStarDescription(Integer starDescription) {
+		this.starDescription = starDescription;
+	}
+	@Override
+	public String toString() {
+		return "Order [workId=" + workId + ", orderId=" + orderId + ", serveTime=" + serveTime + ", serveAddress="
+				+ serveAddress + ", payWay=" + payWay + ", payState=" + payState + ", wordDescription="
+				+ wordDescription + ", starDescription=" + starDescription + ", orderInfo=" + orderInfo + "]";
 	}	
 }

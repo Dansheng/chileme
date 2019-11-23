@@ -192,28 +192,28 @@ public class WorkerDao {
 		}
 		else return 2;//2 represents successfully login in
 	}
-	public static void main(String[] args)
-	{
-		Worker worker=new Worker(3,"1999");
-		worker.setName("OSW");
-		worker.setPosition("boss");
-		worker.setPhoneNumber("13325303000");
-		worker.setEmail("osw@ins");
-		worker.setPassword("123456");
-		WorkerDao workerdao=new WorkerDao();
-		System.out.println(workerdao.CheckPas(worker));
-		Worker worker1=new Worker(1,"fewfew");
-		worker1.setName("why");
-		worker1.setPosition("boss");
-		worker1.setPhoneNumber("1332530300");
-		worker1.setEmail("osw@ins");
-		System.out.println(workerdao.CheckPas(worker1));
-		Worker worker2=new Worker(2,"zsy123456");
-		worker2.setName("zsy");
-		worker2.setPosition("boss");
-		worker2.setPhoneNumber("13092979567");
-		worker2.setEmail("wjk@ins");
-		System.out.println(workerdao.CheckPas(worker2));
-		
-	}
+//	public static void main(String[] args)
+//	{
+//		Worker worker=new Worker(3,"1999");
+//		worker.setName("OSW");
+//		worker.setPosition("boss");
+//		worker.setPhoneNumber("13325303000");
+//		worker.setEmail("osw@ins");
+//		worker.setPassword("123456");
+//		WorkerDao workerdao=new WorkerDao();
+//		System.out.println(workerdao.CheckPas(worker));
+//		Worker worker1=new Worker(1,"fewfew");
+//		worker1.setName("why");
+//		worker1.setPosition("boss");
+//		worker1.setPhoneNumber("1332530300");
+//		worker1.setEmail("osw@ins");
+//		System.out.println(workerdao.CheckPas(worker1));
+//		Worker worker2=new Worker(2,"zsy123456");
+//		worker2.setName("zsy");
+//		worker2.setPosition("boss");
+//		worker2.setPhoneNumber("13092979567");
+//		worker2.setEmail("wjk@ins");
+//		System.out.println(workerdao.CheckPas(worker2));
+//		
+//	}
 }

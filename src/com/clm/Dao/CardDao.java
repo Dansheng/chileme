@@ -17,17 +17,17 @@ public class CardDao {
 			String insert="INSERT INTO cardInfo(workId,cardNumber,balance) VALUES("+card.getWorkerId()+",'"+card.getCardNumber()+"',"+card.getBalance()+")";
 //			System.out.println(insert);
 			s=stmt.executeUpdate(insert);
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			JdbcUnit.CloseConnection();
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -47,18 +47,18 @@ public class CardDao {
 			Statement stmt=JdbcUnit.getConnection().createStatement();
 			String delete="DELETE FROM cardInfo WHERE workId="+card.getWorkerId();
 			s=stmt.executeUpdate(delete);
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			JdbcUnit.CloseConnection();
-			System.out.println("Successfully delete");
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//			JdbcUnit.CloseConnection();
+//			System.out.println("Successfully delete");
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -69,36 +69,36 @@ public class CardDao {
 		}
 		else return false;
 	}
-	public static boolean ModifyCardNumber(Card card)
-	{
-		Integer s=null;
-		try
-		{
-			Statement stmt=JdbcUnit.getConnection().createStatement();
-			String modify="UPDATE cardInfo SET cardNumber='"+card.getCardNumber()+"'";
-			s=stmt.executeUpdate(modify);
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			JdbcUnit.CloseConnection();
-		}catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		System.out.print("Successfully modifyCardNumber");
-		if(s!=0)
-		{
-			return true;
-		}
-		else return false;
-	}
+//	public static boolean ModifyCardNumber(Card card)
+//	{
+//		Integer s=null;
+//		try
+//		{
+//			Statement stmt=JdbcUnit.getConnection().createStatement();
+//			String modify="UPDATE cardInfo SET cardNumber='"+card.getCardNumber()+"'";
+//			s=stmt.executeUpdate(modify);
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//			JdbcUnit.CloseConnection();
+//		}catch(SQLException e)
+//		{
+//			e.printStackTrace();
+//		}
+//		System.out.print("Successfully modifyCardNumber");
+//		if(s!=0)
+//		{
+//			return true;
+//		}
+//		else return false;
+//	}
 	public static void Query(Worker worker)
 	{
 		try
@@ -110,17 +110,17 @@ public class CardDao {
 			{
 				System.out.println(rs.getInt("workId")+"\t"+rs.getString("cardNumber")+"\t"+rs.getDouble("balance"));
 			}
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}	
-				JdbcUnit.CloseConnection();
-			}
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}	
+//				JdbcUnit.CloseConnection();
+//			}
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
