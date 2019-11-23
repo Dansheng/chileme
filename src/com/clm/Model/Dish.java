@@ -1,5 +1,53 @@
 package com.clm.Model;
 
 public class Dish {
-	
+	Integer dishId;
+	String dishName;
+	Double price;
+	Integer avaNumber;
+	String image_url;
+	String descrption;
+	Dish(Integer dishId){
+		setDishId(dishId);
+	}
+	Dish(String dishName,Double price){
+		setDishName(dishName);
+		setPrice(price);
+	}
+	public Integer getDishId() {
+		return dishId;
+	}
+	public void setDishId(Integer dishId) {
+		this.dishId = dishId;
+	}
+	public String getDishName() {
+		return dishName;
+	}
+	public void setDishName(String dishName) {
+		this.dishName = dishName;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public Integer getAvaNumber() {
+		return avaNumber;
+	}
+	public void setAvaNumber(Integer avaNumber) {
+		this.avaNumber = avaNumber;
+	}
+	public String getImage_url() {
+		return image_url;
+	}
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+	public String getDescrption() {
+		return descrption;
+	}
+	public void setDescrption(String descrption) {
+		this.descrption = descrption;
+	}
 }
