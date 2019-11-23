@@ -7,7 +7,7 @@ import com.clm.Model.*;
 import com.mysql.cj.protocol.Resultset;
 
 public class WorkerDao {
-	public static boolean AddWorker(Worker worker)
+	public  boolean AddWorker(Worker worker)
 	{
 		Integer s=null;
 		try
@@ -15,17 +15,17 @@ public class WorkerDao {
 			Statement stmt=JdbcUnit.getConnection().createStatement();
 			String insert="INSERT INTO worker(workId,name,position,phoneNumber,email) VALUES("+worker.getWorkId()+",'"+worker.getName()+"','"+worker.getPosition()+"','"+worker.getPhoneNumber()+"','"+worker.getEmail()+"')";
 			s=stmt.executeUpdate(insert);
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			JdbcUnit.CloseConnection();
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -38,7 +38,7 @@ public class WorkerDao {
 		else return false;
 		
 	}
-	public static boolean DelWorker(Worker worker)
+	public  boolean DelWorker(Worker worker)
 	{
 		Integer s=null;
 		try 
@@ -46,17 +46,17 @@ public class WorkerDao {
 			Statement stmt=JdbcUnit.getConnection().createStatement();
 			String delete="DELETE FROM worker WHERE workId="+worker.getWorkId();
 			s=stmt.executeUpdate(delete);
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			JdbcUnit.CloseConnection();
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -69,7 +69,7 @@ public class WorkerDao {
 		else return false;
 		
 	}
-	public static boolean ModifyPoisiton(Worker worker)
+	public  boolean ModifyPoisiton(Worker worker)
 	{
 		Integer s=null;
 		try 
@@ -77,17 +77,17 @@ public class WorkerDao {
 			Statement stmt=JdbcUnit.getConnection().createStatement();
 			String modify="UPDATE worker SET position='"+worker.getPosition()+"' WHERE workerId="+worker.getWorkId();
 			stmt.executeUpdate(modify);
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			JdbcUnit.CloseConnection();
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -99,7 +99,7 @@ public class WorkerDao {
 		}
 		else return false;
 	}
-	public static boolean ModifyPhoneNumber(Worker worker)
+	public  boolean ModifyPhoneNumber(Worker worker)
 	{
 		Integer s=null;
 		try
@@ -107,17 +107,17 @@ public class WorkerDao {
 			Statement stmt=JdbcUnit.getConnection().createStatement();
 			String modify="UPDATE worker SET phoneNumber='"+worker.getPhoneNumber()+"' WHERE workerId="+worker.getWorkId();
 			stmt.executeUpdate(modify);
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			JdbcUnit.CloseConnection();
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -140,17 +140,17 @@ public class WorkerDao {
 			{
 				System.out.println(rs.getInt("workerId")+"\t"+rs.getString("name")+"\t"+rs.getString("phonNumber")+"\t"+rs.getString("email"));
 			}
-			if(stmt!=null)
-			{
-				try
-				{
-					stmt.close();
-				}catch(SQLException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			JdbcUnit.CloseConnection();
+//			if(stmt!=null)
+//			{
+//				try
+//				{
+//					stmt.close();
+//				}catch(SQLException e)
+//				{
+//					e.printStackTrace();
+//				}
+//			}
+//			JdbcUnit.CloseConnection();
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
