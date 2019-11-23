@@ -75,20 +75,35 @@ public class SignIn extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
 				controller.login(Integer.parseInt(textWorkId.getText()),textPassword.getText());
+//				System.out.println(Integer.parseInt(textWorkId.getText()));
+//				System.out.println(textPassword.getText());
+//				System.out.println(controller.login(Integer.parseInt(textWorkId.getText()),textPassword.getText()));
 			}
 		});
+			
+			
+		buttonSignIn.addActionListener(this);
+	
 		buttonSignIn.setBounds(137, 171, 117, 29);
 		panel.add(buttonSignIn);
 		
 		JButton buttonSignUp = new JButton("注册");
-		buttonSignUp.addActionListener(this);
+		buttonSignUp.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				new SignUp().setVisible(true);
+			}
+		});
 		
 		buttonSignUp.setBounds(253, 171, 61, 26);
 		panel.add(buttonSignUp);
 	}
 	public void actionPerformed(ActionEvent e) {
-		this.setVisible(false);
-		new SignUp().setVisible(true);
+		new SelectDishes().setVisible(true);
+		this.dispose();
 	}
-
+//	public void actionPerformed(ActionEvent e) {
+//		this.setVisible(false);
+//		new SelectDishes().setVisible(true);
+//	}
+	
 }
