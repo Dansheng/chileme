@@ -6,14 +6,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
+import javax.swing.JScrollPane;
+import javax.swing.JToolBar;
 import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
-import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JTabbedPane;
+import javax.swing.JToggleButton;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.GridLayout;
+import java.awt.CardLayout;
+import javax.swing.JLabel;
+import java.awt.FlowLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.Color;
 
 public class SelectDishes extends JFrame {
 
@@ -40,86 +50,116 @@ public class SelectDishes extends JFrame {
 	 */
 	public SelectDishes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		setBounds(100, 100, 800, 400);
+		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
+		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JButton butHomePage = new JButton("首页");
-		butHomePage.setBounds(33, 19, 117, 29);
-		panel.add(butHomePage);
+		JLabel labName1 = new JLabel("name");
+		labName1.setBounds(67, 140, 34, 16);
+		panel.add(labName1);
 		
-		JButton butMyOrder = new JButton("我的订单");
-		butMyOrder.setBounds(221, 19, 117, 29);
-		panel.add(butMyOrder);
+		JLabel labPicture1 = new JLabel("picture");
+		labPicture1.setBounds(57, 56, 44, 16);
+		panel.add(labPicture1);
 		
-		JLabel label = new JLabel("美食分类");
-		label.setBounds(6, 54, 61, 16);
-		panel.add(label);
+		JLabel labName7 = new JLabel("name");
+		labName7.setBounds(67, 309, 34, 16);
+		panel.add(labName7);
 		
-		JButton button = new JButton("今日特价");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		button.setBounds(67, 49, 117, 29);
-		panel.add(button);
+		JLabel labPicture7 = new JLabel("picture");
+		labPicture7.setBounds(57, 225, 44, 16);
+		panel.add(labPicture7);
 		
-		JButton button_1 = new JButton("特色快餐");
-		button_1.setBounds(186, 49, 117, 29);
-		panel.add(button_1);
+		JLabel labPicture2 = new JLabel("picture");
+		labPicture2.setBounds(169, 56, 44, 16);
+		panel.add(labPicture2);
 		
-		JButton btnNewButton = new JButton("甜品饮品");
-		btnNewButton.setBounds(315, 49, 117, 29);
-		panel.add(btnNewButton);
+		JLabel labName2 = new JLabel("name");
+		labName2.setBounds(179, 140, 34, 16);
+		panel.add(labName2);
 		
-		JButton btnNewButton_1 = new JButton("picture");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1.setBounds(16, 149, 73, 69);
-		panel.add(btnNewButton_1);
+		JLabel labPicture3 = new JLabel("picture");
+		labPicture3.setBounds(295, 56, 44, 16);
+		panel.add(labPicture3);
 		
-		JLabel label_1 = new JLabel("鱼香肉丝");
-		label_1.setBounds(28, 218, 61, 16);
-		panel.add(label_1);
+		JLabel labName3 = new JLabel("name");
+		labName3.setBounds(305, 140, 34, 16);
+		panel.add(labName3);
 		
-		JButton button_2 = new JButton("picture");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		button_2.setBounds(121, 149, 73, 69);
-		panel.add(button_2);
+		JLabel labPicture4 = new JLabel("picture");
+		labPicture4.setBounds(420, 56, 44, 16);
+		panel.add(labPicture4);
 		
-		JLabel label_2 = new JLabel("酸辣土豆丝");
-		label_2.setBounds(121, 218, 73, 16);
-		panel.add(label_2);
+		JLabel labName4 = new JLabel("name");
+		labName4.setBounds(430, 140, 34, 16);
+		panel.add(labName4);
 		
-		JButton button_3 = new JButton("picture");
-		button_3.setBounds(221, 149, 73, 69);
-		panel.add(button_3);
+		JLabel labPicture5 = new JLabel("picture");
+		labPicture5.setBounds(555, 56, 44, 16);
+		panel.add(labPicture5);
 		
-		JLabel label_3 = new JLabel("麻辣牛肉");
-		label_3.setBounds(230, 218, 61, 16);
-		panel.add(label_3);
+		JLabel labName5 = new JLabel("name");
+		labName5.setBounds(565, 140, 34, 16);
+		panel.add(labName5);
 		
-		JButton button_4 = new JButton("picture");
-		button_4.setBounds(326, 149, 73, 69);
-		panel.add(button_4);
+		JLabel labPicture6 = new JLabel("picture");
+		labPicture6.setBounds(684, 56, 44, 16);
+		panel.add(labPicture6);
 		
-		JLabel label_4 = new JLabel("炸鸡");
-		label_4.setBounds(347, 218, 61, 16);
-		panel.add(label_4);
+		JLabel labName6 = new JLabel("name");
+		labName6.setBounds(694, 140, 34, 16);
+		panel.add(labName6);
 		
-		JLabel label_5 = new JLabel("为您推荐");
-		label_5.setBounds(173, 107, 61, 16);
-		panel.add(label_5);
+		JLabel labPicture8 = new JLabel("picture");
+		labPicture8.setBounds(169, 225, 44, 16);
+		panel.add(labPicture8);
+		
+		JLabel labName8 = new JLabel("name");
+		labName8.setBounds(179, 309, 34, 16);
+		panel.add(labName8);
+		
+		JLabel labPicture9 = new JLabel("picture");
+		labPicture9.setBounds(295, 225, 44, 16);
+		panel.add(labPicture9);
+		
+		JLabel labName9 = new JLabel("name");
+		labName9.setBounds(305, 309, 34, 16);
+		panel.add(labName9);
+		
+		JLabel labPicture10 = new JLabel("picture");
+		labPicture10.setBounds(420, 225, 44, 16);
+		panel.add(labPicture10);
+		
+		JLabel labName10 = new JLabel("name");
+		labName10.setBounds(430, 309, 34, 16);
+		panel.add(labName10);
+		
+		JLabel labPicture11 = new JLabel("picture");
+		labPicture11.setBounds(555, 225, 44, 16);
+		panel.add(labPicture11);
+		
+		JLabel labName11 = new JLabel("name");
+		labName11.setBounds(565, 309, 34, 16);
+		panel.add(labName11);
+		
+		JLabel labPicture12 = new JLabel("picture");
+		labPicture12.setBounds(698, 225, 44, 16);
+		panel.add(labPicture12);
+		
+		JLabel labName12 = new JLabel("name");
+		labName12.setBounds(708, 309, 34, 16);
+		panel.add(labName12);
+		
+		JButton butExchage = new JButton("换一换");
+		butExchage.setBounds(677, 343, 117, 29);
+		panel.add(butExchage);
+		
+		JLabel labHello = new JLabel("欢迎选餐");
+		labHello.setBounds(389, 6, 61, 16);
+		panel.add(labHello);
+
 	}
 }
