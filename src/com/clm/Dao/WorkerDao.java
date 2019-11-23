@@ -160,14 +160,24 @@ public class WorkerDao {
 			e.printStackTrace();
 		}	
 	}
-	public static String CheckPas(Worker worker)
+	public static int CheckPas(Worker worker)
 	{
 		Integer s=null;
 		try
 		{
 			Statement stmt=JdbcUnit.getConnection().createStatement();
-			String check="SELECT COUNT(*) FROM userInfo WHERE workId="+worker.getWorkId()+" and password="+"'"+worker.getPassword()+"'";
-			ResultSet rs=stmt.executeQuery(check);
+			String check1="SELECT COUNT(*) FROM worker where workId="+worker.getWorkId();
+			ResultSet rs=stmt.executeQuery(check1);
+			while(rs.next())
+			{
+				s=rs.getInt(1);
+			}
+			if(s==0)
+			{
+				return 0;//0 represents worker doesn't exist
+			}
+			String check2="SELECT COUNT(*) FROM userInfo WHERE workId="+worker.getWorkId()+" and password="+"'"+worker.getPassword()+"'";
+			rs=stmt.executeQuery(check2);
 			while(rs.next())
 			{
 				s=rs.getInt(1);
@@ -175,25 +185,35 @@ public class WorkerDao {
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
-		}
-		if(s!=0)
+		}	
+		if(s==0)
 		{
-			return "success";
+			return 1;//1 represents password doesn't match
 		}
-		else return "password error";
-			
+		else return 2;//2 represents successfully login in
 	}
 	public static void main(String[] args)
 	{
-		Worker worker=new Worker(001,"1999");
+		Worker worker=new Worker(3,"1999");
 		worker.setName("OSW");
 		worker.setPosition("boss");
 		worker.setPhoneNumber("13325303000");
 		worker.setEmail("osw@ins");
 		worker.setPassword("123456");
 		WorkerDao workerdao=new WorkerDao();
-		workerdao.AddWorker(worker);
 		System.out.println(workerdao.CheckPas(worker));
+		Worker worker1=new Worker(1,"fewfew");
+		worker1.setName("why");
+		worker1.setPosition("boss");
+		worker1.setPhoneNumber("1332530300");
+		worker1.setEmail("osw@ins");
+		System.out.println(workerdao.CheckPas(worker1));
+		Worker worker2=new Worker(2,"zsy123456");
+		worker2.setName("zsy");
+		worker2.setPosition("boss");
+		worker2.setPhoneNumber("13092979567");
+		worker2.setEmail("wjk@ins");
+		System.out.println(workerdao.CheckPas(worker2));
 		
 	}
 }
