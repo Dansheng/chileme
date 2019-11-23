@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
 
 public class SignUp extends JFrame {
 
@@ -82,11 +83,6 @@ public class SignUp extends JFrame {
 		panel.add(textEmail);
 		textEmail.setColumns(10);
 		
-		textPassword = new JTextField();
-		textPassword.setBounds(152, 251, 130, 26);
-		panel.add(textPassword);
-		textPassword.setColumns(10);
-		
 		JLabel labelWorkId = new JLabel("员工编号");
 		labelWorkId.setBounds(51, 41, 52, 16);
 		panel.add(labelWorkId);
@@ -122,6 +118,10 @@ public class SignUp extends JFrame {
 		});
 		buttonSignUp.setBounds(104, 309, 117, 29);
 		panel.add(buttonSignUp);
+		
+		textPassword = new JTextField();
+		textPassword.setBounds(152, 251, 130, 26);
+		panel.add(textPassword);
+		textPassword.setColumns(10);
 	}
-
 }
