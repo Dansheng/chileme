@@ -7,9 +7,12 @@ public class Order {
 	String serveAddress;
 	String payWay;
 	String payStatus;
-		
+	OrderInfo orderInfo;
 	Order(){
 		
+	}
+	Order(OrderInfo orderInfo){
+		this.orderInfo = orderInfo;
 	}
 	// get
 	public Integer getWorkId() {

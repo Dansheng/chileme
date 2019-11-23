@@ -6,7 +6,7 @@ public class Dish {
 	Double price;
 	Integer avaNumber;
 	String image_url;
-	String descrption;
+	String description;
 	public Dish(Integer dishId){
 		setDishId(dishId);
 	}
@@ -44,10 +44,10 @@ public class Dish {
 	public void setImage_url(String image_url) {
 		this.image_url = image_url;
 	}
-	public String getDescrption() {
-		return descrption;
+	public String getDescription() {
+		return description;
 	}
-	public void setDescrption(String descrption) {
-		this.descrption = descrption;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }
