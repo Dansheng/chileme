@@ -109,37 +109,37 @@ public class OrderDao {
 		}
 		return orderlist;
 	}
-	public static void main(String[] args)
-	{
-		OrderInfo orderinfo=new OrderInfo();
-		orderinfo.setOrderId(1);
-		orderinfo.getDish_count().put(1, 1);
-		orderinfo.setWordDescription("kaka");
-		orderinfo.setStarDesciption(2);
-		Order order=new Order(orderinfo);
-		order.setOrderId(1);
-		order.setWorkId(1);
-		order.setServeTime("2019年8月20");
-		order.setServeAddr("海棠");
-		order.setPayWay("cash");
-		order.setPayState("preparing");
-		order.setWordDescription("good");
-		order.setStarDescription(1);
-		Order order2=new Order(orderinfo);
-		order2.setOrderId(2);
-		order2.setWorkId(1);
-		order2.setServeTime("2019年11月28");
-		order2.setServeAddr("海棠");
-		order2.setPayWay("cash");
-		order2.setPayState("finished");
-		order2.setWordDescription("good");
-		order2.setStarDescription(1);
-		OrderDao orderdao=new OrderDao();
+//	public static void main(String[] args)
+//	{
+//		OrderInfo orderinfo=new OrderInfo();
+//		orderinfo.setOrderId(1);
+//		orderinfo.getDish_count().put(1, 1);
+//		orderinfo.setWordDescription("kaka");
+//		orderinfo.setStarDesciption(2);
+//		Order order=new Order(orderinfo);
+//		order.setOrderId(1);
+//		order.setWorkId(1);
+//		order.setServeTime("2019年8月20");
+//		order.setServeAddr("海棠");
+//		order.setPayWay("cash");
+//		order.setPayState("preparing");
+//		order.setWordDescription("good");
+//		order.setStarDescription(1);
+//		Order order2=new Order(orderinfo);
+//		order2.setOrderId(2);
+//		order2.setWorkId(1);
+//		order2.setServeTime("2019年11月28");
+//		order2.setServeAddr("海棠");
+//		order2.setPayWay("cash");
+//		order2.setPayState("finished");
+//		order2.setWordDescription("good");
+//		order2.setStarDescription(1);
+//		OrderDao orderdao=new OrderDao();
 //		System.out.println(orderdao.AddOrder(order2));
 //		System.out.println(orderdao.QueryOrder(1));
 //		System.out.println(orderdao.setOrderState(order));
-		System.out.println(orderdao.getOrderList(1));
+//		System.out.println(orderdao.getOrderList(1));
 		
 		
-	}
+//	}
 }

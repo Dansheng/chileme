@@ -8,7 +8,7 @@ public class CardDao {
 	CardDao(){
 		
 	}
-	public static boolean AddCard(Card card)
+	public  boolean AddCard(Card card)
 	{
 		Integer s=null;
 		try
@@ -39,7 +39,7 @@ public class CardDao {
 		}
 		else return false;
 	}
-	public static boolean DelCard(Card card)
+	public  boolean DelCard(Card card)
 	{	
 		Integer s=null;
 		try
@@ -99,7 +99,7 @@ public class CardDao {
 //		}
 //		else return false;
 //	}
-	public static void Query(Worker worker)
+	public  void Query(Worker worker)
 	{
 		try
 		{
@@ -126,14 +126,37 @@ public class CardDao {
 			e.printStackTrace();
 		}
 	}
+	public boolean UpdateBalance(Card card)
+	{
+		Integer s=null;
+		try
+		{
+			Statement stmt=JdbcUnit.getConnection().createStatement();
+			String query="UPDATE cardInfo SET balance="+card.getBalance()+"WHERE workId="+card.getWorkerId();
+			System.out.println(query);
+			s=stmt.executeUpdate(query);
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		if(s!=null)
+		{
+			return true;
+		}
+		else return false;
+	}
 	public static void main(String[] args)
 	{
 		Card card=new Card();
 		card.setWorkerId(001);
 		card.setCardNumber("12345");
 		card.setBalance(3220.4);
-		//AddCard(card);
-		DelCard(card);
+		card.setBalance(825);
+//		AddCard(card);
+//		DelCard(card);
+		CardDao carddao=new CardDao();
+		System.out.println(carddao.UpdateBalance(card));
+		
 		
 	}
 }
