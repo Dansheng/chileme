@@ -109,8 +109,26 @@ public class OrderDao {
 		}
 		return orderlist;
 	}
-//	public static void main(String[] args)
-//	{
+	public static Integer getOrderId()
+	{
+		Integer orderNumber=null;
+		try
+		{
+			Statement stmt=JdbcUnit.getConnection().createStatement();
+			String query="SELECT COUNT(*) FROM orderW";
+			ResultSet rs=stmt.executeQuery(query);
+			while(rs.next())
+			{
+				orderNumber=rs.getInt(1);
+			}
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return orderNumber+1;
+	}
+	public static void main(String[] args)
+	{
 //		OrderInfo orderinfo=new OrderInfo();
 //		orderinfo.setOrderId(1);
 //		orderinfo.getDish_count().put(1, 1);
@@ -139,7 +157,7 @@ public class OrderDao {
 //		System.out.println(orderdao.QueryOrder(1));
 //		System.out.println(orderdao.setOrderState(order));
 //		System.out.println(orderdao.getOrderList(1));
+		System.out.println(OrderDao.getOrderId());
 		
-		
-//	}
+	}
 }
