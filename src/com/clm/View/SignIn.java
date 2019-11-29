@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class SignIn extends JFrame implements ActionListener{
+public class SignIn extends JFrame{
 
 	private JPanel contentPane;
 	private JTextField textWorkId;
@@ -74,16 +74,11 @@ public class SignIn extends JFrame implements ActionListener{
 		buttonSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
-				controller.login(Integer.parseInt(textWorkId.getText()),textPassword.getText());
-//				System.out.println(Integer.parseInt(textWorkId.getText()));
-//				System.out.println(textPassword.getText());
-//				System.out.println(controller.login(Integer.parseInt(textWorkId.getText()),textPassword.getText()));
+				controller.login(Integer.parseInt(textWorkId.getText()),textPassword.getText());				
+				clickSignInBtn();
 			}
 		});
-			
-			
-		buttonSignIn.addActionListener(this);
-	
+				
 		buttonSignIn.setBounds(137, 171, 117, 29);
 		panel.add(buttonSignIn);
 		
@@ -91,19 +86,20 @@ public class SignIn extends JFrame implements ActionListener{
 		buttonSignUp.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				new SignUp().setVisible(true);
+				clickSignUpBtn();
 			}
 		});
 		
 		buttonSignUp.setBounds(253, 171, 61, 26);
 		panel.add(buttonSignUp);
 	}
-	public void actionPerformed(ActionEvent e) {
+
+	public void clickSignInBtn() {//登录
 		new SelectDishes().setVisible(true);
 		this.dispose();
 	}
-//	public void actionPerformed(ActionEvent e) {
-//		this.setVisible(false);
-//		new SelectDishes().setVisible(true);
-//	}
-	
+	public void clickSignUpBtn() {//注册
+		new SignUp().setVisible(true);
+		this.dispose();
+	}
 }

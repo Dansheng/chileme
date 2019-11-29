@@ -154,7 +154,7 @@ public class SelectDishes extends JFrame {
 		panel.add(labName12);
 		
 		JButton butExchage = new JButton("换一换");
-		butExchage.setBounds(677, 343, 117, 29);
+		butExchage.setBounds(677, 337, 117, 29);
 		panel.add(butExchage);
 		
 		JLabel labHello = new JLabel("欢迎选餐");
