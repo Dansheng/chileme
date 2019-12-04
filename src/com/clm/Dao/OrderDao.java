@@ -127,7 +127,9 @@ public class OrderDao {
 		}
 		return orderNumber+1;
 	}
-//	public static void main(String[] args)
+
+	
+//		public static void main(String[] args)
 //	{
 //		OrderInfo orderinfo=new OrderInfo();
 //		orderinfo.setOrderId(1);
@@ -158,6 +160,7 @@ public class OrderDao {
 //		System.out.println(orderdao.setOrderState(order));
 ////		System.out.println(orderdao.getOrderList(1));
 //		System.out.println(OrderDao.getOrderId());
+//			System.out.println(getCurrentOrderNum());
 //		
 //	}
 }

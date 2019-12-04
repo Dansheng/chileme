@@ -7,6 +7,7 @@ public class Dish {
 	Integer avaNumber;
 	String image_url;
 	String description;
+	String type;
 	public Dish(Integer dishId){
 		setDishId(dishId);
 	}
@@ -50,4 +51,13 @@ public class Dish {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public String getType()
+	{
+		return type;
+	}
+	public void setType(String type)
+	{
+		this.type=type;
+	}
+	
 }
