@@ -182,7 +182,13 @@ public class ManageDishes extends JFrame {
 				Controller controller = Controller.getInstance();
 				int a = Verification();
 				if(a==5) {
-					controller.uploadDish(textDishName.getText(), Double.parseDouble(textPrice.getText()), Integer.parseInt(textAvaNumber.getText()), textImagePath.getText(), textDiscribe.getText());
+					boolean a1 = controller.uploadDish(textDishName.getText(), Double.parseDouble(textPrice.getText()), Integer.parseInt(textAvaNumber.getText()), textImagePath.getText(), textDiscribe.getText(),textType.getSelectedItem().toString());
+					if(a1) {
+						JOptionPane.showMessageDialog(btnAdd,"添加成功啦","提示",JOptionPane.PLAIN_MESSAGE);
+					}else {
+						JOptionPane.showMessageDialog(btnAdd,"哎呀，再试一次吧","提示",JOptionPane.PLAIN_MESSAGE);
+					}
+					
 				}
 				
 				
