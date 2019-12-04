@@ -14,9 +14,9 @@ public class Controller {
 		return controller;
 	}
 	// for login 
-	public HashMap<String,Integer> login(Integer workId,String password) {
+	public HashMap<String,Integer> login(Integer workId,String password,String type) {
 		LoginService login = LoginService.getInstance();
-		HashMap<String,Integer> result = login.login(workId, password);
+		HashMap<String,Integer> result = login.login(workId, password,type);
 		return result;
 	}
 	// for register
