@@ -13,20 +13,12 @@ public class LoginService {
 	public static LoginService getInstance() {
 		return loginService;
 	}
-	public HashMap<String,Integer> login(Integer workId,String password,Integer type) {
+	public HashMap<String,Integer> login(Integer workId,String password,String type) {
 		Worker worker = new Worker(workId,password);
 		WorkerDao workDao = new WorkerDao();
 		worker.setWorkId(workId);
 		worker.setPassword(password);
-		if(type == 1) {
-			worker.setPosition("普通员工");
-		}
-		else if(type == 2){
-			worker.setPosition("餐厅员工");
-		}
-		else if(type == 3) {
-			worker.setPosition("管理员");
-		}
+		worker.setPosition(type);
 		Hashmap<String,Integer> result = workDao.CheckPas(worker);
 		return result;
 	}
