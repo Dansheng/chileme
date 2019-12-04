@@ -7,7 +7,11 @@ import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.clm.Controller.Controller;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,6 +28,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.Color;
 import java.awt.Container;
+import javax.swing.JComboBox;
 
 public class ManageDishes extends JFrame {
 
@@ -32,7 +37,9 @@ public class ManageDishes extends JFrame {
 	private JTextField textPrice;
 	private JTextField textAvaNumber;
 	private JLabel labSeeImage;
-	private JTextField textType;
+	private JTextArea textDiscribe;
+	private JTextArea textImagePath;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -54,14 +61,14 @@ public class ManageDishes extends JFrame {
 	 */
 	public ManageDishes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 500);
+		setBounds(100, 100, 450, 540);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 
-		JTextArea textDiscribe = new JTextArea();
+		textDiscribe = new JTextArea();
 		textDiscribe.setBounds(177, 322, 149, 130);
 		//		scrollPane.add(textDiscribe);
 				textDiscribe.setLineWrap(true);
@@ -71,7 +78,7 @@ public class ManageDishes extends JFrame {
 				contentPane.add(jspDirscribe);
 		
 		
-		JTextArea textImagePath = new JTextArea();
+		textImagePath = new JTextArea();
 		textImagePath.setBounds(177, 268, 161, 26);
 		//		panel_1.add(textImagePath);
 				textImagePath.setBackground(Color.WHITE);
@@ -154,10 +161,38 @@ public class ManageDishes extends JFrame {
 		labType.setBounds(101, 136, 52, 16);
 		panel_1.add(labType);
 		
-		textType = new JTextField();
-		textType.setColumns(10);
-		textType.setBounds(177, 133, 130, 26);
+		JComboBox<String> textType = new JComboBox<String>();
+		textType.addItem("川湘菜");
+		textType.addItem("西北菜");
+		textType.addItem("江浙菜");
+		textType.addItem("新疆菜");
+		textType.addItem("东北菜");
+		textType.addItem("粤菜");
+		textType.addItem("西餐");
+		textType.addItem("日本料理");
+		textType.addItem("韩式简餐");
+		textType.addItem("小吃夜宵");
+		textType.addItem("甜品饮品");
+		textType.setBounds(177, 132, 130, 26);
 		panel_1.add(textType);
+		
+		JButton btnAdd = new JButton("添加");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Controller controller = Controller.getInstance();
+				int a = Verification();
+				if(a==5) {
+					controller.uploadDish(textDishName.getText(), Double.parseDouble(textPrice.getText()), Integer.parseInt(textAvaNumber.getText()), textImagePath.getText(), textDiscribe.getText());
+				}
+				
+				
+			}
+		});
+		btnAdd.setBounds(173, 461, 117, 29);
+		panel_1.add(btnAdd);
+		
+		
+		
 	}
 	
 	public void setImageUrl(String img_url) {
@@ -165,4 +200,67 @@ public class ManageDishes extends JFrame {
 		image.setImage(image.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
 		this.labSeeImage.setIcon(image);
 	}
+	
+	//表单验证
+	public int Verification() {
+		int sum = 0;
+		//菜品名称
+		if (textDishName.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textDishName,"菜品不能没有名称哦","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}else {
+			sum++;
+		}
+		//单价
+		if(textPrice.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textPrice,"菜品不能没有单价哦","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}else {
+			sum++;
+		}
+		//数量
+		if(textAvaNumber.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textAvaNumber,"菜品不能没有数量哦","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}else {
+			sum++;
+		}
+		//描述
+		if(textDiscribe.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textDiscribe,"菜品不能没有描述哦","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}else {
+			sum++;
+		}
+		
+		//图片
+		if(textImagePath.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textImagePath,"菜品不能没有图片哦","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}else {
+			sum++;
+		}
+		return sum;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
