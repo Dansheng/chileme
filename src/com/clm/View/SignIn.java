@@ -85,7 +85,6 @@ public class SignIn extends JFrame{
 		JButton buttonSignUp = new JButton("注册");
 		buttonSignUp.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				new SignUp().setVisible(true);
 				clickSignUpBtn();
 			}
 		});

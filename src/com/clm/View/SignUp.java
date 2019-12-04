@@ -16,13 +16,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+import javax.swing.JComboBox;
 
 public class SignUp extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textWorkId;
 	private JTextField textName;
-	private JTextField textPosition;
 	private JTextField textPhoneNumber;
 	private JTextField textEmail;
 	private JTextField textPassword;
@@ -68,11 +68,6 @@ public class SignUp extends JFrame {
 		panel.add(textName);
 		textName.setColumns(10);
 		
-		textPosition = new JTextField();
-		textPosition.setBounds(152, 122, 130, 26);
-		panel.add(textPosition);
-		textPosition.setColumns(10);
-		
 		textPhoneNumber = new JTextField();
 		textPhoneNumber.setBounds(152, 165, 130, 26);
 		panel.add(textPhoneNumber);
@@ -107,13 +102,19 @@ public class SignUp extends JFrame {
 		labelPassword.setBounds(77, 256, 26, 16);
 		panel.add(labelPassword);
 		
-		
+		JComboBox textPosition = new JComboBox();
+		textPosition.setBounds(152, 122, 136, 27);
+		panel.add(textPosition);
+		textPosition.addItem("普通员工");
+		textPosition.addItem("餐厅员工");
+		textPosition.addItem("管理员");
 		
 		JButton buttonSignUp = new JButton("注册");
 		buttonSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
-				controller.register(Integer.parseInt(textWorkId.getText()), textName.getText(), textPosition.getText(), textPhoneNumber.getText(), textEmail.getText(), textPassword.getText());
+				controller.register(Integer.parseInt(textWorkId.getText()), textName.getText(), textPosition.getSelectedItem().toString(), textPhoneNumber.getText(), textEmail.getText(), textPassword.getText());
+				System.out.println(textPosition.getSelectedItem().toString());
 				clickSignUpBtn();
 			}
 		});
@@ -125,6 +126,10 @@ public class SignUp extends JFrame {
 		textPassword.setBounds(152, 251, 130, 26);
 		panel.add(textPassword);
 		textPassword.setColumns(10);
+		
+
+
+
 	}
 
 	public void clickSignUpBtn() {
