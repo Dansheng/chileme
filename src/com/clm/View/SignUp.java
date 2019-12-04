@@ -11,6 +11,7 @@ import com.clm.Controller.Controller;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -72,6 +73,7 @@ public class SignUp extends JFrame {
 		textPhoneNumber.setBounds(152, 165, 130, 26);
 		panel.add(textPhoneNumber);
 		textPhoneNumber.setColumns(10);
+
 		
 		textEmail = new JTextField();
 		textEmail.setBounds(152, 208, 130, 26);
@@ -114,7 +116,31 @@ public class SignUp extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
 				controller.register(Integer.parseInt(textWorkId.getText()), textName.getText(), textPosition.getSelectedItem().toString(), textPhoneNumber.getText(), textEmail.getText(), textPassword.getText());
-//				System.out.println(textPosition.getSelectedItem().toString());
+
+				//表单验证
+				if(textWorkId.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textWorkId,"员工编号不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+				}
+				else {
+					for(int i = 0; i<textWorkId.getText().length(); i++) {
+						System.out.println(textWorkId.getText().charAt(i));
+						if (!Character.isDigit(textWorkId.getText().charAt(i))){
+							System.out.println("no");
+						}
+						else {
+							System.out.println("yes");
+						}
+						
+					}
+				}
+				
+				
+				System.out.println(textPhoneNumber.getText().length());
+				if(textPhoneNumber.getText().length() != 11) {
+					JOptionPane.showMessageDialog(textPhoneNumber,"电话号码有误，请重新输入","提示",JOptionPane.PLAIN_MESSAGE);
+				}
+				
+				
 				clickSignUpBtn();
 			}
 		});
