@@ -19,16 +19,16 @@ public class LoginService {
 		worker.setPassword(password);
 		worker.setPosition(type);
 		HashMap<String,Integer> result = WorkerDao.CheckPas(worker);
-		if(result.get("data")==1) {
-			if(type.equals("餐厅员工") || type.equals("管理员")) {
-				result.put("data",4);
-			}
-		}
-		else if(result.get("data")==2) {
-			if(type.equals("管理员")) {
-				result.put("data",4);
-			}
-		}
+//		if(result.get("data")==1) {
+//			if(type.equals("餐厅员工") || type.equals("管理员")) {
+//				result.put("data",4);
+//			}
+//		}
+//		else if(result.get("data")==2) {
+//			if(type.equals("管理员")) {
+//				result.put("data",4);
+//			}
+//		}
 		
 		return result;
 	}
