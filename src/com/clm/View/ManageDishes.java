@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
@@ -58,6 +59,7 @@ public class ManageDishes extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
+
 		JTextArea textDiscribe = new JTextArea();
 		textDiscribe.setBounds(177, 292, 149, 130);
 		//		scrollPane.add(textDiscribe);
@@ -138,15 +140,27 @@ public class ManageDishes extends JFrame {
 		JLabel labImagePath = new JLabel("图片路径");
 		labImagePath.setBounds(101, 238, 61, 16);
 		panel_1.add(labImagePath);
+		
+
+
 		btnImage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser chooser = new JFileChooser();
 				if (chooser.showOpenDialog(btnImage)==JFileChooser.APPROVE_OPTION) {//
                     File file = chooser.getSelectedFile();
                     textImagePath.setText(file.getPath());
+            		
+//            		String path_ = textImagePath.getText();
+//            		String path = "\"" + path_ +"\"";
+//            		JLabel labPicture = new JLabel(new ImageIcon(path));
+//            		labPicture.setBounds(308, 144, 114, 81);
+//            		panel_1.add(labPicture);
+//            		System.out.println("111");
+                    
                 };
 			}
 		});
+
 		
 	}
 }

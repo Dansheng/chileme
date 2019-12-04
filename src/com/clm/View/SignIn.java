@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class SignIn extends JFrame{
 
@@ -79,19 +80,31 @@ public class SignIn extends JFrame{
 			}
 		});
 				
-		buttonSignIn.setBounds(137, 171, 117, 29);
+		buttonSignIn.setBounds(138, 216, 117, 29);
 		panel.add(buttonSignIn);
 		
 		JButton buttonSignUp = new JButton("注册");
 		buttonSignUp.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				new SignUp().setVisible(true);
 				clickSignUpBtn();
 			}
 		});
 		
-		buttonSignUp.setBounds(253, 171, 61, 26);
+		buttonSignUp.setBounds(254, 216, 61, 26);
 		panel.add(buttonSignUp);
+		
+		JLabel labType = new JLabel("员工类型");
+		labType.setBounds(121, 166, 61, 16);
+		panel.add(labType);
+		
+		JComboBox<String> textType = new JComboBox<String>();
+		textType.setBounds(185, 162, 130, 26);
+		panel.add(textType);
+		textType.addItem("普通员工");
+		textType.addItem("餐厅员工");
+		textType.addItem("管理员");
+		
+		
 	}
 
 	public void clickSignInBtn() {//登录
