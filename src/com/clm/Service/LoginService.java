@@ -13,10 +13,21 @@ public class LoginService {
 	public static LoginService getInstance() {
 		return loginService;
 	}
-	public HashMap<String,String> login(Integer workId,String password) {
+	public HashMap<String,Integer> login(Integer workId,String password,Integer type) {
 		Worker worker = new Worker(workId,password);
 		WorkerDao workDao = new WorkerDao();
-		
-		return null;
+		worker.setWorkId(workId);
+		worker.setPassword(password);
+		if(type == 1) {
+			worker.setPosition("普通员工");
+		}
+		else if(type == 2){
+			worker.setPosition("餐厅员工");
+		}
+		else if(type == 3) {
+			worker.setPosition("管理员");
+		}
+		Hashmap<String,Integer> result = workDao.CheckPas(worker);
+		return result;
 	}
 }

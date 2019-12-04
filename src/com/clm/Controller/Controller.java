@@ -14,10 +14,10 @@ public class Controller {
 		return controller;
 	}
 	// for login 
-	public boolean login(Integer workId,String password) {
+	public HashMap<String,Integer> login(Integer workId,String password) {
 		LoginService login = LoginService.getInstance();
-		//HashMap<String,String> result = login.login(workId, password);
-		return true;
+		HashMap<String,Integer> result = login.login(workId, password);
+		return result;
 	}
 	// for register
 	public boolean register(Integer workId,String name,String position,String phoneNumber,String email,String password){
