@@ -35,9 +35,19 @@ public class OrderInfo{
 	}
 	// add
 	public void addDish(Integer dishId) {
-		dish_count.put(dishId, 1);
+		if(dish_count.containsKey(dishId)) {
+			dish_count.replace(dishId, dish_count.get(dishId)+1);
+		}
+		else {
+			dish_count.put(dishId, 1);
+		}
 	}
 	public void addDish(Integer dishId,Integer count) {
-		dish_count.put(dishId, count);
+		if(dish_count.containsKey(dishId)) {
+			dish_count.replace(dishId, dish_count.get(dishId)+1);
+		}
+		else {
+			dish_count.put(dishId, count);
+		}
 	}
 }

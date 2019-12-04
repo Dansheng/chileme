@@ -18,7 +18,9 @@ public class RegisterService {
 		worker.setPhoneNumber(phoneNumber);
 		worker.setEmail(email);
 		WorkerDao workerDao = new WorkerDao();
-		workerDao.AddWorker(worker);
-		return true;
+		if(workerDao.AddWorker(worker)) {
+			return true;
+		}
+		else return false;
 	}
 }

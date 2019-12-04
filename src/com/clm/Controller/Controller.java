@@ -1,5 +1,7 @@
 package com.clm.Controller;
 
+import java.util.HashMap;
+
 import com.clm.Service.LoginService;
 import com.clm.Service.RegisterService;
 
@@ -14,7 +16,7 @@ public class Controller {
 	// for login 
 	public boolean login(Integer workId,String password) {
 		LoginService login = LoginService.getInstance();
-		login.login(workId, password);
+		//HashMap<String,String> result = login.login(workId, password);
 		return true;
 	}
 	// for register
