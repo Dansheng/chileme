@@ -113,7 +113,6 @@ public class SignUp extends JFrame {
 		
 		JButton buttonSignUp = new JButton("注册");
 		buttonSignUp.addActionListener(new ActionListener() {
-			int sum = 0;
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
 				int a = Verification();
