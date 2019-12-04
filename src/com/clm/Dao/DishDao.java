@@ -146,6 +146,7 @@ public class DishDao {
 			{
 				dishNumber=rs.getInt(1);
 			}
+//			System.out.println(dishNumber);
 //			if(stmt!=null)
 //			{
 //				try
@@ -163,8 +164,8 @@ public class DishDao {
 		}
 		return dishNumber+1;
 	}
-//	public static void main(String[] args)
-//	{
+	public static void main(String[] args)
+	{
 //		Integer i=getDishId();
 //		System.out.println(i);
 //		DishDao dishDao=new DishDao();
@@ -199,5 +200,6 @@ public class DishDao {
 ////		System.out.println(dishDao.Querydish(1));
 //		dishDao.Querydish();
 //		System.out.println(dishDao.Querydish("川湘菜"));
-//	}
+		System.out.println(getDishId());
+	}
 }

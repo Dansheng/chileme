@@ -43,6 +43,9 @@ public class Controller {
 			System.out.println(e.getMessage());
 		}
 		return false;		
+	}
+	public static void main(String[] args)
+	{
 		
 	}
 }
