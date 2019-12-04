@@ -2,6 +2,7 @@ package com.clm.View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -27,11 +28,10 @@ import java.awt.Container;
 public class ManageDishes extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textDishId;
 	private JTextField textDishName;
 	private JTextField textPrice;
 	private JTextField textAvaNumber;
-
+	private JLabel labSeeImage;
 	/**
 	 * Launch the application.
 	 */
@@ -86,42 +86,33 @@ public class ManageDishes extends JFrame {
 	    
 		
 		JLabel label = new JLabel("菜单管理");
-		label.setBounds(192, 10, 52, 16);
+		label.setBounds(196, 6, 52, 16);
 		panel_1.add(label);
 		
-		textDishId = new JTextField();
-		textDishId.setBounds(177, 38, 130, 26);
-		panel_1.add(textDishId);
-		textDishId.setColumns(10);
-		
-		JLabel labDishId = new JLabel("菜品编号");
-		labDishId.setBounds(101, 41, 52, 16);
-		panel_1.add(labDishId);
-		
 		JLabel labDishName = new JLabel("菜品名称");
-		labDishName.setBounds(101, 81, 52, 16);
+		labDishName.setBounds(101, 34, 52, 16);
 		panel_1.add(labDishName);
 		
 		textDishName = new JTextField();
-		textDishName.setBounds(177, 76, 130, 26);
+		textDishName.setBounds(177, 29, 130, 26);
 		panel_1.add(textDishName);
 		textDishName.setColumns(10);
 		
 		JLabel labPrice = new JLabel("菜品单价");
-		labPrice.setBounds(101, 125, 52, 16);
+		labPrice.setBounds(101, 69, 52, 16);
 		panel_1.add(labPrice);
 		
 		textPrice = new JTextField();
-		textPrice.setBounds(177, 120, 130, 26);
+		textPrice.setBounds(177, 64, 130, 26);
 		panel_1.add(textPrice);
 		textPrice.setColumns(10);
 		
 		JLabel labAvaNumber = new JLabel("菜品数量");
-		labAvaNumber.setBounds(101, 166, 52, 16);
+		labAvaNumber.setBounds(101, 105, 52, 16);
 		panel_1.add(labAvaNumber);
 		
 		textAvaNumber = new JTextField();
-		textAvaNumber.setBounds(177, 158, 130, 26);
+		textAvaNumber.setBounds(177, 102, 130, 26);
 		panel_1.add(textAvaNumber);
 		textAvaNumber.setColumns(10);
 		
@@ -130,37 +121,38 @@ public class ManageDishes extends JFrame {
 		panel_1.add(labDiscribe);
 		
 		JLabel labImage = new JLabel("菜品图片");
-		labImage.setBounds(101, 206, 52, 16);
+		labImage.setBounds(101, 143, 52, 16);
 		panel_1.add(labImage);
 		
 		JButton btnImage = new JButton("选择图片");
-		btnImage.setBounds(177, 196, 95, 26);
+		btnImage.setBounds(173, 140, 95, 26);
 		panel_1.add(btnImage);
 		
+
 		JLabel labImagePath = new JLabel("图片路径");
 		labImagePath.setBounds(101, 238, 61, 16);
 		panel_1.add(labImagePath);
-		
-
-
 		btnImage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser chooser = new JFileChooser();
 				if (chooser.showOpenDialog(btnImage)==JFileChooser.APPROVE_OPTION) {//
                     File file = chooser.getSelectedFile();
-                    textImagePath.setText(file.getPath());
-            		
-//            		String path_ = textImagePath.getText();
-//            		String path = "\"" + path_ +"\"";
-//            		JLabel labPicture = new JLabel(new ImageIcon(path));
-//            		labPicture.setBounds(308, 144, 114, 81);
-//            		panel_1.add(labPicture);
-//            		System.out.println("111");
-                    
+                    textImagePath.setText(file.getAbsolutePath().toString());
+                    setImageUrl(file.getAbsolutePath().toString());
                 };
 			}
 		});
-
 		
+		ImageIcon image = new ImageIcon("./assets/img/logo.png");
+		image.setImage(image.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
+		labSeeImage = new JLabel(image);
+		labSeeImage.setBounds(183, 166, 112, 65);
+		panel_1.add(labSeeImage);
+	}
+	
+	public void setImageUrl(String img_url) {
+		ImageIcon image = new ImageIcon(img_url);
+		image.setImage(image.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
+		this.labSeeImage.setIcon(image);
 	}
 }

@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
-
+import java.util.regex.*;
 public class SignUp extends JFrame {
 
 	private JPanel contentPane;
@@ -113,11 +113,13 @@ public class SignUp extends JFrame {
 		
 		JButton buttonSignUp = new JButton("注册");
 		buttonSignUp.addActionListener(new ActionListener() {
+			int sum = 0;
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
 				controller.register(Integer.parseInt(textWorkId.getText()), textName.getText(), textPosition.getSelectedItem().toString(), textPhoneNumber.getText(), textEmail.getText(), textPassword.getText());
 
 				//表单验证
+				//员工编号
 				if(textWorkId.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(textWorkId,"员工编号不可为空","提示",JOptionPane.PLAIN_MESSAGE);
 				}
@@ -133,13 +135,34 @@ public class SignUp extends JFrame {
 						
 					}
 				}
+				//员工姓名
+				if(textName.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textWorkId,"员工姓名不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+				}
 				
 				
+				//电话号码
 				System.out.println(textPhoneNumber.getText().length());
 				if(textPhoneNumber.getText().length() != 11) {
 					JOptionPane.showMessageDialog(textPhoneNumber,"电话号码有误，请重新输入","提示",JOptionPane.PLAIN_MESSAGE);
 				}
 				
+				//邮件
+				if(textEmail.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textEmail,"邮件地址不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+				}
+				else {
+					String pattern = ".*@.*";
+					boolean isMatch = Pattern.matches(pattern,textEmail.getText());
+					if(!isMatch) {
+						JOptionPane.showMessageDialog(textEmail,"邮件地址有误","提示",JOptionPane.PLAIN_MESSAGE);
+					}
+				}
+				
+				//密码
+				if(textPassword.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textPassword,"密码不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+				}
 				
 				clickSignUpBtn();
 			}
@@ -152,9 +175,6 @@ public class SignUp extends JFrame {
 		textPassword.setBounds(152, 251, 130, 26);
 		panel.add(textPassword);
 		textPassword.setColumns(10);
-		
-
-
 
 	}
 
