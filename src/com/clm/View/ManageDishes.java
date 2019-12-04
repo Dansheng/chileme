@@ -32,6 +32,7 @@ public class ManageDishes extends JFrame {
 	private JTextField textPrice;
 	private JTextField textAvaNumber;
 	private JLabel labSeeImage;
+	private JTextField textType;
 	/**
 	 * Launch the application.
 	 */
@@ -53,7 +54,7 @@ public class ManageDishes extends JFrame {
 	 */
 	public ManageDishes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 460);
+		setBounds(100, 100, 450, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -61,23 +62,23 @@ public class ManageDishes extends JFrame {
 		
 
 		JTextArea textDiscribe = new JTextArea();
-		textDiscribe.setBounds(177, 292, 149, 130);
+		textDiscribe.setBounds(177, 322, 149, 130);
 		//		scrollPane.add(textDiscribe);
 				textDiscribe.setLineWrap(true);
 				
 				JScrollPane jspDirscribe = new JScrollPane(textDiscribe);
-				jspDirscribe.setBounds(177, 292, 140, 135);
+				jspDirscribe.setBounds(177, 322, 140, 135);
 				contentPane.add(jspDirscribe);
 		
 		
 		JTextArea textImagePath = new JTextArea();
-		textImagePath.setBounds(177, 238, 161, 26);
+		textImagePath.setBounds(177, 268, 161, 26);
 		//		panel_1.add(textImagePath);
 				textImagePath.setBackground(Color.WHITE);
 				textImagePath.setLineWrap(true);
 				
 				JScrollPane jspImagePath = new JScrollPane(textImagePath);
-				jspImagePath.setBounds(177, 240, 168, 40);
+				jspImagePath.setBounds(177, 268, 168, 40);
 				contentPane.add(jspImagePath);
 		
 		JPanel panel_1 = new JPanel();
@@ -117,20 +118,20 @@ public class ManageDishes extends JFrame {
 		textAvaNumber.setColumns(10);
 		
 		JLabel labDiscribe = new JLabel("菜品描述");
-		labDiscribe.setBounds(101, 292, 52, 16);
+		labDiscribe.setBounds(101, 316, 52, 16);
 		panel_1.add(labDiscribe);
 		
 		JLabel labImage = new JLabel("菜品图片");
-		labImage.setBounds(101, 143, 52, 16);
+		labImage.setBounds(101, 167, 52, 16);
 		panel_1.add(labImage);
 		
 		JButton btnImage = new JButton("选择图片");
-		btnImage.setBounds(173, 140, 95, 26);
+		btnImage.setBounds(173, 164, 95, 26);
 		panel_1.add(btnImage);
 		
 
 		JLabel labImagePath = new JLabel("图片路径");
-		labImagePath.setBounds(101, 238, 61, 16);
+		labImagePath.setBounds(101, 263, 61, 16);
 		panel_1.add(labImagePath);
 		btnImage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -146,8 +147,17 @@ public class ManageDishes extends JFrame {
 		ImageIcon image = new ImageIcon("./assets/img/logo.png");
 		image.setImage(image.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
 		labSeeImage = new JLabel(image);
-		labSeeImage.setBounds(183, 166, 112, 65);
+		labSeeImage.setBounds(177, 191, 112, 65);
 		panel_1.add(labSeeImage);
+		
+		JLabel labType = new JLabel("菜品类别");
+		labType.setBounds(101, 136, 52, 16);
+		panel_1.add(labType);
+		
+		textType = new JTextField();
+		textType.setColumns(10);
+		textType.setBounds(177, 133, 130, 26);
+		panel_1.add(textType);
 	}
 	
 	public void setImageUrl(String img_url) {

@@ -116,56 +116,14 @@ public class SignUp extends JFrame {
 			int sum = 0;
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
-				controller.register(Integer.parseInt(textWorkId.getText()), textName.getText(), textPosition.getSelectedItem().toString(), textPhoneNumber.getText(), textEmail.getText(), textPassword.getText());
-
-				//表单验证
-				//员工编号
-				if(textWorkId.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(textWorkId,"员工编号不可为空","提示",JOptionPane.PLAIN_MESSAGE);
-				}
-				else {
-					for(int i = 0; i<textWorkId.getText().length(); i++) {
-						System.out.println(textWorkId.getText().charAt(i));
-						if (!Character.isDigit(textWorkId.getText().charAt(i))){
-							System.out.println("no");
-						}
-						else {
-							System.out.println("yes");
-						}
-						
-					}
-				}
-				//员工姓名
-				if(textName.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(textWorkId,"员工姓名不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+				int a = Verification();
+				if(a==5) {
+					controller.register(Integer.parseInt(textWorkId.getText()), textName.getText(), textPosition.getSelectedItem().toString(), textPhoneNumber.getText(), textEmail.getText(), textPassword.getText());
+					clickSignUpBtn();
 				}
 				
-				
-				//电话号码
-				System.out.println(textPhoneNumber.getText().length());
-				if(textPhoneNumber.getText().length() != 11) {
-					JOptionPane.showMessageDialog(textPhoneNumber,"电话号码有误，请重新输入","提示",JOptionPane.PLAIN_MESSAGE);
-				}
-				
-				//邮件
-				if(textEmail.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(textEmail,"邮件地址不可为空","提示",JOptionPane.PLAIN_MESSAGE);
-				}
-				else {
-					String pattern = ".*@.*";
-					boolean isMatch = Pattern.matches(pattern,textEmail.getText());
-					if(!isMatch) {
-						JOptionPane.showMessageDialog(textEmail,"邮件地址有误","提示",JOptionPane.PLAIN_MESSAGE);
-					}
-				}
-				
-				//密码
-				if(textPassword.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(textPassword,"密码不可为空","提示",JOptionPane.PLAIN_MESSAGE);
-				}
-				
-				clickSignUpBtn();
 			}
+			
 		});
 	
 		buttonSignUp.setBounds(104, 309, 117, 29);
@@ -182,4 +140,79 @@ public class SignUp extends JFrame {
 		this.setVisible(false);
 		new SignIn().setVisible(true);
 	}
+	
+	
+	//表单验证
+	public int Verification(){
+		int sum = 0;
+		//员工编号
+		if(textWorkId.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textWorkId,"员工编号不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}
+		else {
+			int j = 0;
+			for(int i = 0; i < textWorkId.getText().length(); i++) {
+				if (!Character.isDigit(textWorkId.getText().charAt(i))){
+					JOptionPane.showMessageDialog(textWorkId,"员工编号必须为数字","提示",JOptionPane.PLAIN_MESSAGE);
+					return sum;
+				}
+				else {
+					j++;
+				}
+			}
+			if(j == textWorkId.getText().length()) {
+				sum++;
+			}
+		}
+		//员工姓名
+		if(textName.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textName,"员工姓名不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}
+		else {
+			sum++;
+		}
+
+		//电话号码
+		if(textPhoneNumber.getText().length() != 11) {
+			JOptionPane.showMessageDialog(textPhoneNumber,"电话号码有误，请重新输入","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}
+		else {
+			sum++;
+		}
+		
+		//邮件
+		if(textEmail.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textEmail,"邮件地址不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}
+		else if(!textEmail.getText().isEmpty()){
+			String pattern = ".*@.*";
+			boolean isMatch = Pattern.matches(pattern,textEmail.getText());
+			if(!isMatch) {
+				JOptionPane.showMessageDialog(textEmail,"邮件地址有误","提示",JOptionPane.PLAIN_MESSAGE);
+				return sum;
+			}
+			else {
+				sum++;
+			}
+		}
+		
+		
+		//密码
+		if(textPassword.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(textPassword,"密码不可为空","提示",JOptionPane.PLAIN_MESSAGE);
+			return sum;
+		}
+		else {
+			sum++;
+		}
+		
+		return sum;
+		
+	}
+	
+	
 }
