@@ -15,11 +15,21 @@ public class LoginService {
 	}
 	public HashMap<String,Integer> login(Integer workId,String password,String type) {
 		Worker worker = new Worker(workId,password);
-		WorkerDao workDao = new WorkerDao();
 		worker.setWorkId(workId);
 		worker.setPassword(password);
 		worker.setPosition(type);
-		Hashmap<String,Integer> result = workDao.CheckPas(worker);
+		HashMap<String,Integer> result = WorkerDao.CheckPas(worker);
+		if(result.get("data")==1) {
+			if(type.equals("餐厅员工") || type.equals("管理员")) {
+				result.put("data",4);
+			}
+		}
+		else if(result.get("data")==2) {
+			if(type.equals("管理员")) {
+				result.put("data",4);
+			}
+		}
+		
 		return result;
 	}
 }
