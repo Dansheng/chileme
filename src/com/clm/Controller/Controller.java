@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.clm.Service.LoginService;
 import com.clm.Service.RegisterService;
+import com.clm.Service.UploadDishService;
 
 public class Controller {
 	private static Controller controller = new Controller();
@@ -30,5 +31,18 @@ public class Controller {
 			System.out.println(e.getMessage());
 		}
 		return false;
+	}
+	// for upload a dish
+	public boolean uploadDish(String dishName,Double dishPrice,Integer dishNumber,String local_img_url,String dishDesc){
+		UploadDishService uploadDishService = UploadDishService.getInstance();
+		try {
+			if(uploadDishService.uploadDish(dishName, dishPrice, dishNumber, local_img_url, dishDesc))
+			return true;
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		return false;		
+		
 	}
 }
