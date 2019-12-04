@@ -33,10 +33,10 @@ public class Controller {
 		return false;
 	}
 	// for upload a dish
-	public boolean uploadDish(String dishName,Double dishPrice,Integer dishNumber,String local_img_url,String dishDesc){
+	public boolean uploadDish(String dishName,Double dishPrice,Integer dishNumber,String local_img_url,String dishDesc,String type){
 		UploadDishService uploadDishService = UploadDishService.getInstance();
 		try {
-			if(uploadDishService.uploadDish(dishName, dishPrice, dishNumber, local_img_url, dishDesc))
+			if(uploadDishService.uploadDish(dishName, dishPrice, dishNumber, local_img_url, dishDesc,type))
 			return true;
 		}
 		catch(Exception e){
