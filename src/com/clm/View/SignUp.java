@@ -102,7 +102,7 @@ public class SignUp extends JFrame {
 		labelPassword.setBounds(77, 256, 26, 16);
 		panel.add(labelPassword);
 		
-		JComboBox textPosition = new JComboBox();
+		JComboBox<String> textPosition = new JComboBox<String>();
 		textPosition.setBounds(152, 122, 136, 27);
 		panel.add(textPosition);
 		textPosition.addItem("普通员工");
@@ -114,7 +114,7 @@ public class SignUp extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Controller controller = Controller.getInstance();
 				controller.register(Integer.parseInt(textWorkId.getText()), textName.getText(), textPosition.getSelectedItem().toString(), textPhoneNumber.getText(), textEmail.getText(), textPassword.getText());
-				System.out.println(textPosition.getSelectedItem().toString());
+//				System.out.println(textPosition.getSelectedItem().toString());
 				clickSignUpBtn();
 			}
 		});
