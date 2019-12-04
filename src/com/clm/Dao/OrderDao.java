@@ -73,7 +73,7 @@ public class OrderDao {
 		}
 		return order;
 	}
-	public boolean setOrderState(Order order)
+	public boolean setOrderState(Order order)//
 	{
 		Integer s=null;
 		try
@@ -97,7 +97,7 @@ public class OrderDao {
 		try
 		{
 			Statement stmt=JdbcUnit.getConnection().createStatement();
-			String query="SELECT* FROM orderW WHERE workId="+WorkerId;
+			String query="SELECT* FROM orderW WHERE workId="+WorkerId+"ORDER BY serveTime DESC";
 			ResultSet rs=stmt.executeQuery(query);
 			while(rs.next())
 			{
